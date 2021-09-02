@@ -6,14 +6,18 @@ const Form = () => {
     const [person1Salary, setPerson1Salary] = useState("");
     const [person2Salary, setPerson2Salary] = useState("");
     const [jointSalary, setJointSalary] = useState(0);
+    const [deposit, setDeposit] = useState(0)
 
-
-
+    
     const handlePerson1SalaryChange = (event) => {
         setPerson1Salary(event.target.value);
     }
     const handlePerson2SalaryChange = (event) => {
         setPerson2Salary(event.target.value);
+    }
+    
+    const handleDepositChange = (event) => {
+        setDeposit(event.target.value)
     }
 
     const handleFormSubmit = event => {
@@ -26,13 +30,14 @@ const Form = () => {
             return
         }
         setJointSalary(parseInt(person1Salary) + parseInt(person2Salary));
+        
     }
 
     return (
         <div>
             <form onSubmit={handleFormSubmit}>
                 <fieldset>
-                    <label for='person1-salary' ></label>
+                    <label for='person1-salary' >Your salary</label>
                     <input 
                         id="person1-salary"
                         type='text'
@@ -41,13 +46,20 @@ const Form = () => {
                         onChange={handlePerson1SalaryChange}
                         required
                     />
-                    <label for='person2-salary' ></label>
+                    <label for='person2-salary' >Second salary</label>
                     <input 
                         id="person2-salary"
                         type='text'
                         placeholder='Person 2 Annual Salary'
                         onChange={handlePerson2SalaryChange}
                         value={person2Salary}
+                    />
+                    <label for='deposit'>Deposit</label>
+                    <input 
+                        id="deposit" 
+                        type='number'
+                        onChange={handleDepositChange}
+                        value={deposit}
                     />
                     <input type='submit' value="Calculate"/>
                 </fieldset>
@@ -58,7 +70,7 @@ const Form = () => {
             <p>p2 salary = {person2Salary}</p>
             <p>joint salary = {jointSalary}</p>
 
-            <MaxValue jointSalary = {jointSalary} />
+            <MaxValue jointSalary = {jointSalary} deposit = {deposit}/>
         </div>
     )
 }
