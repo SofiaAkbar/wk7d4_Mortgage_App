@@ -1,9 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
+import Form from '../components/Form'
 
-function MortgageContainer() {
+
+
+const MortgageContainer = () => {
+
+    
+
+
+
     return (
         <div>
-            
+            <p>Mortgage Container here</p>
+            <Form />
         </div>
     )
 }

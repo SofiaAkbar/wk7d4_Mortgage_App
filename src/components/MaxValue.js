@@ -1,9 +1,16 @@
 import React from 'react'
 
-function MaxValue() {
+const MaxValue = () => {
+
+
+
+    
+
+
+
     return (
         <div>
-            
+            <p>Max Value here</p>
         </div>
     )
 }
