@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
+import MaxValue from "./MaxValue"
 
 const Form = () => {
 
     const [person1Salary, setPerson1Salary] = useState("");
     const [person2Salary, setPerson2Salary] = useState("");
+    const [jointSalary, setJointSalary] = useState(0);
 
-    // const [mortgage, setMortgage] = useState([]);
 
 
     const handlePerson1SalaryChange = (event) => {
@@ -18,27 +19,17 @@ const Form = () => {
     const handleFormSubmit = event => {
         event.preventDefault();
         alert('You have submitted the form.')
-
-
         
+        console.log("form submitted");
+
         if (!person1Salary || !person2Salary){
             return
         }
-
-        // const handleSelectChange = event =>
-        // onFormSubmit = ({
-        //     person1Salary: person1SalaryToSubmit,
-        //     person2Salary: person2SalaryToSubmit
-        // });
-
-        // setPerson1Salary();
-        // setPerson2Salary();
+        setJointSalary(parseInt(person1Salary) + parseInt(person2Salary));
     }
-
 
     return (
         <div>
-            {/* <MaxValue /> */}
             <form onSubmit={handleFormSubmit}>
                 <fieldset>
                     <label for='person1-salary' ></label>
@@ -65,11 +56,10 @@ const Form = () => {
 
             <p>P1 salary = {person1Salary}</p>
             <p>p2 salary = {person2Salary}</p>
+            <p>joint salary = {jointSalary}</p>
 
+            <MaxValue jointSalary = {jointSalary} />
         </div>
-
-
-
     )
 }
 

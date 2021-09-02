@@ -1,16 +1,14 @@
 import React from 'react'
 
-const MaxValue = () => {
+const MaxValue = ({jointSalary}) => {
 
-
-
-    
-
-
+    const maxValue = (jointSalary) => {
+        return jointSalary * 4.5
+    }
 
     return (
         <div>
-            <p>Max Value here</p>
+            <p>Max value: {maxValue(jointSalary)}</p>
         </div>
     )
 }
