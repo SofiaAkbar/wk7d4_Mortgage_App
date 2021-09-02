@@ -6,9 +6,14 @@ const Form = () => {
     const [person1Salary, setPerson1Salary] = useState("");
     const [person2Salary, setPerson2Salary] = useState("");
     const [jointSalary, setJointSalary] = useState(0);
-    const [deposit, setDeposit] = useState(0)
+    const [deposit, setDeposit] = useState(0);
+    const [expenses, setExpenses] = useState(0);
 
     
+    const handleExpensesChange = (event) => {
+        setExpenses(event.target.value)
+    }
+
     const handlePerson1SalaryChange = (event) => {
         setPerson1Salary(event.target.value);
     }
@@ -57,10 +62,19 @@ const Form = () => {
                     <label for='deposit'>Deposit</label>
                     <input 
                         id="deposit" 
-                        type='number'
+                        type='text'
                         onChange={handleDepositChange}
                         value={deposit}
                     />
+
+                    <label for='expenses'>Other monthly expenses</label>
+                    <input 
+                        id="expenses" 
+                        type='text'
+                        onChange={handleExpensesChange}
+                        value={expenses}
+                    />
+
                     <input type='submit' value="Calculate"/>
                 </fieldset>
             </form>
@@ -70,7 +84,7 @@ const Form = () => {
             <p>p2 salary = {person2Salary}</p>
             <p>joint salary = {jointSalary}</p>
 
-            <MaxValue jointSalary = {jointSalary} deposit = {deposit}/>
+            <MaxValue jointSalary = {jointSalary} deposit = {deposit} expenses = {expenses}/>
         </div>
     )
 }
